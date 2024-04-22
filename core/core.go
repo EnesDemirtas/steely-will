@@ -1,10 +1,15 @@
 package core
 
-import "time"
+import (
+	"time"
+
+	"github.com/google/uuid"
+)
 
 
-func (h *Habit) New(name string, goalDate time.Time) *Habit {
+func New(name string, goalDate time.Time) *Habit {
 	return &Habit{
+		ID:				uuid.New(),
 		Name:			name,
 		FailStack: 		0,
 		GoalDate: 		goalDate,

@@ -1,10 +1,15 @@
 package core
 
-import "time"
+import (
+	"time"
+
+	"github.com/google/uuid"
+)
 
 type Habit struct {
-	Name 			string
-	FailStack 		int
-	GoalDate		time.Time
-	LastResetDate	time.Time
+	ID 				uuid.UUID `json:"id"`
+	Name 			string	  `json:"name"`
+	FailStack 		int		  `json:"failStack"`
+	GoalDate		time.Time `json:"goalDate"`
+	LastResetDate	time.Time `json:"lastResetDate"`
 }
