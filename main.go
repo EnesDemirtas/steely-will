@@ -1,7 +1,13 @@
 package main
 
-import "github.com/EnesDemirtas/steely-will/ui"
+import (
+	"fmt"
+
+	"github.com/EnesDemirtas/steely-will/ui"
+)
 
 func main() {
-	ui.Run()
+	if err := ui.Run(); err != nil {
+		fmt.Println(err)
+	}
 }
