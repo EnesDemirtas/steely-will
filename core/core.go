@@ -7,12 +7,12 @@ import (
 )
 
 
-func New(name string, goalDate time.Time) *Habit {
+func New(name string, goalDays int) *Habit {
 	return &Habit{
 		ID:				uuid.New(),
 		Name:			name,
 		FailStack: 		0,
-		GoalDate: 		goalDate,
+		GoalDays: 		goalDays,
 		LastResetDate: 	time.Now(),
 	}
 }
@@ -30,10 +30,10 @@ func (h *Habit) ChangeName(newName string) {
 	h.Name = newName
 }
 
-func (h *Habit) ChangeGoalDate(newGoal time.Time) {
-	h.GoalDate = newGoal
+func (h *Habit) ChangeGoalDays(newGoal int) {
+	h.GoalDays = newGoal
 }
 
 func (h *Habit) IsGoalReached() bool {
-	return time.Now().After(h.GoalDate)
+	return time.Now().After(h.LastResetDate.Add(time.Duration(h.GoalDays) * 24 * time.Hour))
 }

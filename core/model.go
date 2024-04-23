@@ -10,6 +10,6 @@ type Habit struct {
 	ID 				uuid.UUID `json:"id"`
 	Name 			string	  `json:"name"`
 	FailStack 		int		  `json:"failStack"`
-	GoalDate		time.Time `json:"goalDate"`
+	GoalDays		int 	  `json:"goalDays"`
 	LastResetDate	time.Time `json:"lastResetDate"`
 }
