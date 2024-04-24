@@ -2,6 +2,8 @@
   import { GetAllHabits } from "../wailsjs/go/main/App.js";
   import { CreateHabit } from "../wailsjs/go/main/App.js";
 
+  import Card from './Card.svelte';
+
   let habits = [];
   let newHabitName;
   let newHabitGoalDays;
@@ -13,7 +15,7 @@
   init();
 
   function getAllHabits() {
-    GetAllHabits().then((result) => (habits = result))
+    GetAllHabits().then((result) => (habits = result.Habits));
   }
 
   function createHabit() {
@@ -23,14 +25,14 @@
 </script>
 
 <h3>Steely Will</h3>
-<div>
+<div class="card-container">
   {#each habits as habit}
-    <span>{habit.Name}</span>
+    <Card habit={habit}></Card>
   {/each}
 </div>
 <div>
-  <input bind:value={newHabitName} />
-  <input bind:value={newHabitGoalDays} />
+  <input bind:value={newHabitName} placeholder="Habit name"/>
+  <input bind:value={newHabitGoalDays} placeholder="Goal as days"/>
   <button class="btn" on:click={createHabit}>
     Create a new habit!
   </button>
