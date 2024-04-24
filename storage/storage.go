@@ -16,6 +16,12 @@ type Storage struct {
 	Habits []core.Habit `json:"habits"`
 }
 
+func New() *Storage {
+	return &Storage{
+		Habits: []core.Habit{},
+	}
+}
+
 func (s *Storage) Store(h core.Habit) error {
 	file, err := s.CreateOrOpen()
 	if err != nil {
