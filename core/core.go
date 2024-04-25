@@ -17,9 +17,6 @@ func New(name string, goalDays int) *Habit {
 	}
 }
 
-func (h *Habit) GetTimeElapsed() time.Duration {
-	return time.Since(h.LastResetDate)
-}
 
 func (h *Habit) Reset() {
 	h.FailStack++
