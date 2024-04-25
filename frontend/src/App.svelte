@@ -20,7 +20,11 @@
 
     function createHabit() {
         let daysInt = parseInt(newHabitGoalDays);
-        CreateHabit(newHabitName, daysInt);
+        CreateHabit(newHabitName, daysInt).then(() => {
+            getAllHabits();
+            newHabitName = "";
+            newHabitGoalDays = "";
+        });
     }
 </script>
 

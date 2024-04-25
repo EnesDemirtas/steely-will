@@ -52,6 +52,7 @@
 <div class="card">
     <h3>{habit.name}</h3>
     <h4><span>Fails: </span>{habit.failStack}</h4>
+    <h4><span>Goal: </span>{habit.goalDays} days</h4>
     <h4>
         <span>{elapsedTime ? formatElapsedTime(elapsedTime) : "00:00:00"}</span>
     </h4>
